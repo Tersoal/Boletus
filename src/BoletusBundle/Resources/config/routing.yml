@@ -11,5 +11,5 @@ boletus_seccion:
     prefix:   /seccion
 
 boletus_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: BoletusBundle:Default:index }
