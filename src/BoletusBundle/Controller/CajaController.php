@@ -20,11 +20,11 @@ class CajaController extends Controller
      * Lists all Caja entities.
      *
      */
-    public function indexAction()
+    public function indexAction($idSeccion = null)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BoletusBundle:Caja')->findAll();
+        $entities = $em->getRepository('BoletusBundle:Caja')->findCajasBySeccion($idSeccion);
 
         return $this->render('BoletusBundle:Caja:index.html.twig', array(
             'entities' => $entities,

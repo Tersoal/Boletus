@@ -1,6 +1,9 @@
 caja:
     path:     /
     defaults: { _controller: "BoletusBundle:Caja:index" }
+caja_seccion:
+    path:     /{id_seccion}
+    defaults: { _controller: "BoletusBundle:Caja:index" }
 
 caja_show:
     path:     /{id}/show
