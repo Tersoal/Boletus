@@ -3,6 +3,7 @@
 namespace BoletusBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BoletusBundle\Entity\Caja;
@@ -43,6 +44,8 @@ class CajaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+
+            $this->saveSession($entity, $request);
 
             return $this->redirect($this->generateUrl('caja_show', array('id' => $entity->getId())));
         }
@@ -172,6 +175,8 @@ class CajaController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->saveSession($entity, $request);
+
             return $this->redirect($this->generateUrl('caja_edit', array('id' => $id)));
         }
 
@@ -198,6 +203,8 @@ class CajaController extends Controller
                 throw $this->createNotFoundException('Unable to find Caja entity.');
             }
 
+            $this->deleteCajaSession($entity, $request);
+
             $em->remove($entity);
             $em->flush();
         }
@@ -220,5 +227,36 @@ class CajaController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    /**
+     * Saves volume in session.
+     *
+     */
+    private function saveSession($entity, $request)
+    {
+        $session = $request->getSession();
+
+        $cajas = $session->get('cajas');
+        $cajas[$entity->getId()] = $entity->getVolume();
+
+        $session->set('cajas', $cajas);
+
+        var_dump($cajas);exit();
+    }
+
+    /**
+     * Delete volume from session.
+     *
+     */
+    private function deleteCajaSession($entity, $request)
+    {
+        $session = $request->getSession();
+
+        $cajas = $session->get('cajas');
+
+        unset($cajas[$entity->getId()]);
+
+        $session->set('cajas', $cajas);
     }
 }

@@ -6,24 +6,24 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Width</th>
-                <th>Height</th>
-                <th>Length</th>
-                <th>Volume</th>
                 <th>Id</th>
-                <th>Actions</th>
+                <th>Nombre</th>
+                <th>Anchura</th>
+                <th>Altura</th>
+                <th>Longitud</th>
+                <th>Volumen</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
+                <td>{{ entity.id }}</td>
                 <td><a href="{{ path('caja_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>{{ entity.width }}</td>
                 <td>{{ entity.height }}</td>
                 <td>{{ entity.length }}</td>
                 <td>{{ entity.volume }}</td>
-                <td>{{ entity.id }}</td>
                 <td>
                 <ul>
                     <li>
