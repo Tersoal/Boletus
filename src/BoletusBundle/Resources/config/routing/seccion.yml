@@ -1,0 +1,30 @@
+seccion:
+    path:     /
+    defaults: { _controller: "BoletusBundle:Seccion:index" }
+
+seccion_show:
+    path:     /{id}/show
+    defaults: { _controller: "BoletusBundle:Seccion:show" }
+
+seccion_new:
+    path:     /new
+    defaults: { _controller: "BoletusBundle:Seccion:new" }
+
+seccion_create:
+    path:     /create
+    defaults: { _controller: "BoletusBundle:Seccion:create" }
+    methods:  POST
+
+seccion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BoletusBundle:Seccion:edit" }
+
+seccion_update:
+    path:     /{id}/update
+    defaults: { _controller: "BoletusBundle:Seccion:update" }
+    methods:  [POST, PUT]
+
+seccion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BoletusBundle:Seccion:delete" }
+    methods:  [POST, DELETE]

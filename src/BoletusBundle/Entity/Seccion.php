@@ -32,6 +32,11 @@ class Seccion
         $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * Set name
      *

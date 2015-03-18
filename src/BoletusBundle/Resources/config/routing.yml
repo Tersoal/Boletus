@@ -1,3 +1,15 @@
+boletus_caja:
+    resource: "@BoletusBundle/Resources/config/routing/caja.yml"
+    prefix:   /caja
+
+boletus_categoria:
+    resource: "@BoletusBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+boletus_seccion:
+    resource: "@BoletusBundle/Resources/config/routing/seccion.yml"
+    prefix:   /seccion
+
 boletus_homepage:
     path:     /hello/{name}
     defaults: { _controller: BoletusBundle:Default:index }

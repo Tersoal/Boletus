@@ -45,6 +45,11 @@ class Caja
     private $categoria;
 
 
+    function __toString()
+    {
+        return $this->getName();
+    }
+    
     /**
      * Set name
      *

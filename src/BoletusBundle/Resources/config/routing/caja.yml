@@ -1,0 +1,30 @@
+caja:
+    path:     /
+    defaults: { _controller: "BoletusBundle:Caja:index" }
+
+caja_show:
+    path:     /{id}/show
+    defaults: { _controller: "BoletusBundle:Caja:show" }
+
+caja_new:
+    path:     /new
+    defaults: { _controller: "BoletusBundle:Caja:new" }
+
+caja_create:
+    path:     /create
+    defaults: { _controller: "BoletusBundle:Caja:create" }
+    methods:  POST
+
+caja_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BoletusBundle:Caja:edit" }
+
+caja_update:
+    path:     /{id}/update
+    defaults: { _controller: "BoletusBundle:Caja:update" }
+    methods:  [POST, PUT]
+
+caja_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BoletusBundle:Caja:delete" }
+    methods:  [POST, DELETE]
