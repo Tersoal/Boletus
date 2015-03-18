@@ -1,0 +1,3 @@
+boletus_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BoletusBundle:Default:index }
